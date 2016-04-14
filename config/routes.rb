@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-
-  get "/products/new"   =>    "products#new",     as: :new_product
-  post "/products"      =>    "products#create",  as: :products
-  get "/products/:id"   =>    "products#show",    as: :product
-  get "/products"       =>    "products#index"
-  get "/products/:id/edit"  => "products#edit",   as: :edit_product
-  patch "/products/:id"     => "products#update"
-  delete "products/:id"     => "products#destroy"
+  #
+  # get "/products/new"   =>    "products#new",     as: :new_product
+  # post "/products"      =>    "products#create",  as: :products
+  # get "/products/:id"   =>    "products#show",    as: :product
+  # get "/products"       =>    "products#index"
+  # get "/products/:id/edit"  => "products#edit",   as: :edit_product
+  # patch "/products/:id"     => "products#update"
+  # delete "products/:id"     => "products#destroy"
   root "home#index", as: :home
 
   resources :products do
-    resources :reviews 
+    resources :reviews#, only: [:create, :destroy]
   end
 
 

@@ -10,7 +10,7 @@
 
 <hr>
 
-<%# product_reviews_path is a get for all the reviews under a product id %>
+<%# product_reviews_path is a post to review#create under a product id %>
 <%= form_for @review, url: product_reviews_path(@product) do |f| %>
   <%= f.label :star_count, "Star" %>
   <%= f.text_field :star_count %>
