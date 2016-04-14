@@ -4,3 +4,27 @@
 <%= link_to "Edit", edit_product_path(@product) %>
 <%= link_to "Delete", product_path(@product), method: :delete,
                                               data: {confirm: "Are you sure?"} %>
+<hr>
+
+<%= @review.errors.full_messages.join(", ") %>
+
+<hr>
+
+<%# product_reviews_path is a get for all the reviews under a product id %>
+<%= form_for @review, url: product_reviews_path(@product) do |f| %>
+  <%= f.label :star_count, "Star" %>
+  <%= f.text_field :star_count %>
+  <%= f.label :body, "Review" %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+
+<h2>Reviews</h2>
+<% @product.reviews.each do |review| %>
+  <%= review.star_count %> star -
+  <%= review.body %>
+  <%= link_to "delete", product_review_path(@product, review),
+                data: {confirm: "Are you sure?"},
+                method: :delete %>
+  <hr>
+<% end %>

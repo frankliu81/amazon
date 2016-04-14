@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   delete "products/:id"     => "products#destroy"
   root "home#index", as: :home
 
+  resources :products do
+    resources :reviews 
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

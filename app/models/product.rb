@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
 
+  has_many :reviews, dependent: :destroy
+
   # http://stackoverflow.com/questions/1550688/how-do-i-create-a-default-value-for-attributes-in-rails-activerecords-model
   #before_validation :default_values
   after_initialize :default_values
