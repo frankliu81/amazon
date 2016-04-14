@@ -42,14 +42,7 @@ group :development, :test do
   gem 'cowsay'
 
 
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'pry-doc'
-  gem 'pry-rails'
-  gem 'interactive_editor'
-  gem 'awesome_print'
-  gem 'hirb'
-  
+
 end
 
 group :development do
@@ -59,4 +52,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'interactive_editor'
+  gem 'awesome_print'
+  gem 'hirb'
 end
