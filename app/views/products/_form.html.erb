@@ -16,6 +16,16 @@
     <%= f.text_field :price %>
   </div>
 
+  <div>
+    <%= f.label :category %>
+    <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}) public
+     %>
+     <%# second param, method instance, what you want to save to the database %>
+     <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
+  </div>
+
+
+
   <%= f.submit %>
 
 <% end %>
