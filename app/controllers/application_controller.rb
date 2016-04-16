@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_signed_in?
 
+  def is_authorized_for_current_user authorized_user
+    current_user.id == authorized_user.id
+  end
+  helper_method :is_authorized_for_current_user
+
+
   def current_user
     @current_user ||= User.find session[:user_id]
   end

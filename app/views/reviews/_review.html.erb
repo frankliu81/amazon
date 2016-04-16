@@ -1,0 +1,26 @@
+
+<%# @product.reviews.each do |review| %>
+  <!-- <%#= review.star_count %> star - -->
+  <p>Create by: <%= review.user_full_name.titleize %></p>
+
+  <% i = 0%>
+  <% while i < review.star_count do %>
+    <i class="fa fa-star icon-yellow-star" aria-hidden="true"></i>
+  	<%# <span style="font-size:100%;color:yellow;border-color:black">&starf;</span> %>
+  	<% i += 1%>
+  <% end %>
+
+  <% while i < 5 do %>
+    <i class="fa fa-star icon-gray-star" aria-hidden="true"></i>
+    <%# <span style="font-size:100%;color:black;">&star;</span> %>
+  	<% i += 1 %>
+  <% end %>
+
+  <%= review.body %>
+  <% if is_authorized_for_current_user @product.user  %>
+    <%= link_to "delete", product_review_path(@product, review),
+                  data: {confirm: "Are you sure?"},
+                  method: :delete %>
+  <% end %>
+  <hr>
+<%# end %>

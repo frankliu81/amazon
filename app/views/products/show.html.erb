@@ -3,9 +3,11 @@
 <p>Price: $<%= "%.2f" % @product.price %></p>
 <p>Category: <%= @product.category.name %></p>
 <p>Create by: <%= @product.user_full_name.titleize %></p>
-<%= link_to "Edit", edit_product_path(@product) %>
-<%= link_to "Delete", product_path(@product), method: :delete,
-                                              data: {confirm: "Are you sure?"} %>
+<% if is_authorized_for_current_user @product.user  %>
+  <%= link_to "Edit", edit_product_path(@product) %>
+  <%= link_to "Delete", product_path(@product), method: :delete,
+                                                data: {confirm: "Are you sure?"} %>
+<% end %>
 <hr>
 
 <%= @review.errors.full_messages.join(", ") %>
@@ -14,29 +16,8 @@
 
 
 <h2>Reviews</h2>
-<% @product.reviews.each do |review| %>
-  <!-- <%#= review.star_count %> star - -->
-  <p>Create by: <%= @product.user_full_name.titleize %></p>
-
-  <% i = 0%>
-  <% while i < review.star_count do %>
-    <i class="fa fa-star icon-yellow-star" aria-hidden="true"></i>
-  	<%# <span style="font-size:100%;color:yellow;border-color:black">&starf;</span> %>
-  	<% i += 1%>
-  <% end %>
-
-  <% while i < 5 do %>
-    <i class="fa fa-star icon-gray-star" aria-hidden="true"></i>
-    <%# <span style="font-size:100%;color:black;">&star;</span> %>
-  	<% i += 1 %>
-  <% end %>
-
-  <%= review.body %>
-  <%= link_to "delete", product_review_path(@product, review),
-                data: {confirm: "Are you sure?"},
-                method: :delete %>
-  <hr>
-<% end %>
+<%# partil review is defined in review/_review.html.erb %>
+<%= render @product.reviews %>
 
 <!-- this for the star rating would work as well if we don't include jquery-turbolink gem fix -->
 <!-- <script>
@@ -50,8 +31,8 @@
   <%#= f.text_field :star_count %>
 
   <label for="review_star_count" class="control-label">Rate This</label>
-  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5" data-step="1" data-show-clear="false"
->
+  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5"
+  data-step="1" data-show-clear="false">
 
   <%= f.label :body, "Review" %>
   <%= f.text_area :body %>
