@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.container-user,
+.container-sign-in,
+.container-new-or-edit-product
+{
+  width: 80%;
+}
+
+
+// product index page
 .products > div {
   height: 200px;
 }
 
+// product show page with review
 .icon-gray-star {
     color: #888;
 }

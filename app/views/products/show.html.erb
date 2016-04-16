@@ -12,19 +12,6 @@
 
 <hr>
 
-<%# product_reviews_path is a post to review#create under a product id %>
-<%= form_for @review, url: product_reviews_path(@product) do |f| %>
-  <%#= f.label :star_count, "Star" %>
-  <%#= f.text_field :star_count %>
-
-  <label for="review_star_count" class="control-label">Rate This</label>
-  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5" data-step="1" data-show-clear="false"
->
-
-  <%= f.label :body, "Review" %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
-<% end %>
 
 <h2>Reviews</h2>
 <% @product.reviews.each do |review| %>
@@ -55,3 +42,18 @@
 <!-- <script>
   $(".rating").rating()
 </script> -->
+
+
+<%# product_reviews_path is a post to review#create under a product id %>
+<%= form_for @review, url: product_reviews_path(@product) do |f| %>
+  <%#= f.label :star_count, "Star" %>
+  <%#= f.text_field :star_count %>
+
+  <label for="review_star_count" class="control-label">Rate This</label>
+  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5" data-step="1" data-show-clear="false"
+>
+
+  <%= f.label :body, "Review" %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>

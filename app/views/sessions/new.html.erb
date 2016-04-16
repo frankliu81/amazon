@@ -1,15 +1,26 @@
 <h1>Sign In</h1>
 
-<%= form_tag sessions_path do %>
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+<div class="container-sign-in">
+
+<%= form_tag(sessions_path, :method => :post, :class => "form-horizontal") do %>
+  <div class="form-group">
+    <%= label_tag :email, nil, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= text_field_tag :email, nil,  class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <div class="form-group">
+    <%= label_tag :password, nil, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= password_field_tag :password, nil,  class: "form-control" %>
+    </div>
   </div>
 
-  <%= submit_tag "Sign In" %>
+  <br>
+  <div>
+    <%= submit_tag "Sign In", class: "btn btn-primary col-md-offset-2" %>
+  </div>
 <% end %>
+
+</div>

@@ -1,31 +1,45 @@
 <%= @product.errors.full_messages.join(", ") %>
 
-<%= form_for @product do |f|  %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<div class="container-new-or-edit-product">
+
+<%= form_for @product, :html => {class: "form-horizontal"} do |f|  %>
+  <div class="form-group">
+    <%= f.label :title, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.label :price, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :price, class: "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :category %>
+  <div class="form-group">
+    <%= f.label :category, class: "col-md-2 control-label" %>
     <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}) public
      %>
      <%# second param, method instance, what you want to save to the database %>
-     <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
+     <div class="col-md-8">
+       <%= f.collection_select :category_id, Category.order(:name), :id, :name, class: "form-control" %>
+      </div>
+  </div>
+
+  <br>
+  <div>
+    <%= f.submit "Create Product", class: "btn btn-primary col-md-offset-2" %>
   </div>
 
 
-
-  <%= f.submit %>
-
 <% end %>
+
+</div>
