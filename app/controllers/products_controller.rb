@@ -1,14 +1,15 @@
 class ProductsController < ApplicationController
 
   before_action :find_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   def new
     @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
-
+    @product.user = current_user
+    
     if @product.save
       redirect_to product_path(@product)
     else
@@ -28,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-  
+
     if @product.update(product_params)
       redirect_to product_path(@product)
     else

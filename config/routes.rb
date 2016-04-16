@@ -7,12 +7,19 @@ Rails.application.routes.draw do
   # get "/products/:id/edit"  => "products#edit",   as: :edit_product
   # patch "/products/:id"     => "products#update"
   # delete "products/:id"     => "products#destroy"
-  root "home#index", as: :home
+  root "home#index"
 
   resources :products do
     resources :reviews#, only: [:create, :destroy]
   end
 
+  resources :users, only: [:new, :create]
+
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+    #delete :destroy, on: :member # same one as the default generated
+    #delete :destroy # includes the session_id
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

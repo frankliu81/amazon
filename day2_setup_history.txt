@@ -1,0 +1,302 @@
+cd "/Volumes/BOOTCAMP/Frank/ScienceWorld/"
+cd /Volumes
+ls
+cd BOOTCAMP/
+cd Frank/
+pwd
+cd Models
+pwd
+ls
+cd ScienceWorld/
+ls
+cd ..
+ls
+cd ..
+ls
+pwd
+ls -all
+ls
+cd User
+cd User
+ls
+d home/
+ls
+cd home/
+ls
+ls
+ls
+dc ..
+ls
+ls
+cd ..
+ls
+cd .Trash
+ls
+pwd
+atom practice_markdown.md
+ruby -v
+which ruby
+ls
+mkdir ruby_fundamentals
+cd ruby_fundamentals/
+mkdir day_2
+cd day_2
+irb
+gem install interactive_editor awesome_print hirb
+sudo gem install interactive_editor awesome_print hirb
+atom first_ruby_file.rb
+vim first_ruby_file.rb
+vim first_ruby_file.rb
+irb
+vim first_ruby_file.rb
+irb
+whomai
+whoami
+cd ~
+~
+help mkdir
+man -k mkdir
+info mkdir
+info touch
+info cat
+cat less
+info less
+info tail
+info grep
+irb
+sublime
+vi
+ruby full_name.rb
+ls
+mv full_name.rb ./ruby_fundamentals/day_2/
+ls
+cd ruby_fundamentals/
+cd day_2/
+ls
+irb
+vim compute_multiply
+ls
+rename compute_multiply compute_multiply.rb
+mv compute_multiply compute_multiply.rb
+ruby compute_multiply.rb
+vim full_name.rb 
+vim compute_multiply.rb
+ruby compute_multiply.rb 
+vim compute_multiply.rb 
+ruby compute_multiply.rb 
+vim compute_multiply.rb 
+ruby compute_multiply.rb 
+"12hello234".to_i
+irb
+vim compute_multiply.rb 
+vim if.rb
+ruby if.rb
+ruby if.rb
+ruby if.rb
+vim score.rb
+ruby score.rb 
+vim score.rb
+vim score.rb
+ruby score.rb 
+vim score.rb
+ruby score.rb 
+ruby score.rb 
+ruby score.rb 
+ruby score.rb 
+find . -name abc.txt
+vim abc.txt
+vim abc.txt
+vim abc.txt
+vim while.rb
+ruby while.rb
+vim while.rb
+ruby while.rb
+vim while.rb
+vim while.rb
+vim while.rb
+vim adding_numbers.rb
+ruby adding_numbers.rb 
+2
+vim adding_numbers.rb
+ruby adding_numbers.rb 
+vim adding_numbers.rb
+ruby adding_numbers.rb 
+vim fizzbuzz.rb
+ruby fizzbuss.rb
+ruby fizzbuzz.rb
+vim fizzbuzz.rb
+vim fizzbuzz.rb
+ruby fizzbuzz.rb
+array=[1,2,3]
+irb
+vim num_to_100.rb
+ls
+vim num_to_100.rb
+ruby num_to_100.rb
+vim num_to_100.rb
+irb
+vim num_to_100.rb 
+pwd
+vim num_to_100.rb 
+vim fizzbuzz.rb
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+irb
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+vim assign2_number_pyramid.rb
+ruby assign2_number_pyramid.rb 
+vim assign2_number_pyramid.rb
+ruby assign1_command_line_quiz.rb 
+start .
+.
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign1_command_line_quiz.rb 
+ruby assign3_triangle.rb 
+ruby assign3_triangle.rb 
+ruby assign3_triangle.rb 
+ruby assign3_triangle.rb 
+ruby assign3_triangle.rb 
+ruby assign3_triangle.rb 
+ruby assign3_triangle.rb 8
+ruby assign3_triangle.rb 8
+8
+ruby assign3_triangle.rb 8
+ruby assign3_triangle.rb
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ls
+ls
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+ruby assign2_number_pyramid_2.rb 
+irb
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+ruby assign4_permutations 
+more top
+top
+ps
+chown
+ls
+chown while.rb
+chown while.rb
+chown owner while.rb
+chown while.rb owner
+env
+nano
+.bash_profile
+ls
+cd ..
+cd ..
+ls
+vim ~/.bash_profile
+ls
+finder .
+open .
+ls
+mkdir codcore
+ls
+rm codcore
+rm -f codcore
+rm -rf codcore
+ls
+mkdir codecore
+open .
+cd codecore
+git clone https://github.com/frankliu81/sinatra.git
+git clone https://github.com/frankliu81/sinatra.git
+brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew help
+brew install git
+brew install gcc
+xcode-select --install
+xcode-select --install
+xcode-select --install
+ls
+ls
+cd ..
+ls
+pwd
+sudo chown -R $(whoami):admin /Users/frankliu
+bu
+sudo chown -R $(whoami):admin /Users/frankliu
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+cd ..
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+cd /usr/local
+ls
+ls
+pwd
+cd..
+ls
+cd ..
+ls
+cd local
+sudo chown -R $(whoami):admin /usr/local
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+~
+ls
+pwd
+cd ~
+ls
+open .
+cd codecore/
+cd ruby_fundamentals/
+cd day_3_array/
+ls
+irb
+sudo csrutil status
+csrutil status
+sudo csrutil status
+brew doctor
+\curl -sSL https://get.rvm.io | bash -s stable
+cd ~
+pwd
+cd codecore/
+mkdir history
+cd history
+history ~w day2_setup_history.txt
+history -w day2_setup_history.txt
+vim day2_setup_history.txt 
+history -w day2_setup_history.txt

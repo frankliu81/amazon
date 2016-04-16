@@ -1,6 +1,12 @@
 <h1>List of Amazon Products</h1>
+<div class="row products">
 <% @products.each do |product| %>
-  <div>
-    <%= link_to product.title, product_path(product) %>
-  </div>
+<div class ="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <%# <span class="glyphicon glyphicon-cog"></span> %>
+  <i class="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
+  <h4><%= link_to product.title, product_path(product) %></h4>
+  <p> $<%= product.price %>  </p>
+</div>
 <% end %>
+
+</div>

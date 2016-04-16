@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
+  belongs_to :category
+  belongs_to :user
 
   # http://stackoverflow.com/questions/1550688/how-do-i-create-a-default-value-for-attributes-in-rails-activerecords-model
   #before_validation :default_values
@@ -14,10 +16,18 @@ class Product < ActiveRecord::Base
     sale_price < price
   end
 
+  def user_full_name
+    user ? user.full_name : ""
+  end
+
+  def category_name
+    category ? category.name : ""
+  end
+
   private
 
   def default_values
-    puts "price: #{price}"
+    #puts "price: #{price}"
     self.sale_price ||= price
   end
 

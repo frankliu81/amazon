@@ -5,38 +5,57 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-    <link rel="icon" href="http://www.communications-ink.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-10-at-2.51.37-PM.png">
+  <%# font awesome %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <%# amazon icon %>
+  <link rel="icon" href="http://www.communications-ink.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-10-at-2.51.37-PM.png">
 </head>
 <body>
-  <%= link_to "Home", home_path %>
-  <%= link_to "New Product", new_product_path %>
-  <%= link_to "All Products", products_path %>
+  <div class="container">
 
-  <div>
+    <%# Testing Boot Strap css and js %>
+    <%# <button class="btn-primary">My button</button>
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+          <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        </ul>
 
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-    </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="home">...</div>
+          <div role="tabpanel" class="tab-pane" id="profile">...</div>
+          <div role="tabpanel" class="tab-pane" id="messages">...</div>
+          <div role="tabpanel" class="tab-pane" id="settings">...</div>
+        </div>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">...</div>
-      <div role="tabpanel" class="tab-pane" id="profile">...</div>
-      <div role="tabpanel" class="tab-pane" id="messages">...</div>
-      <div role="tabpanel" class="tab-pane" id="settings">...</div>
-    </div>
+      </div> %>
+    <%# End Testing Boot Strap css and js %>
 
+    <%= link_to "Home", root_path %>
+    |
+    <%= link_to "New Product", new_product_path %>
+    |
+    <%= link_to "All Products", products_path %>
+    |
+    <% if user_signed_in? %>
+      Hello <%= current_user.first_name %> |
+      <%= link_to "Log out", sessions_path, method: :delete %>
+
+    <% else %>
+      <%= link_to "Sign In", new_session_path %> |
+      <%= link_to "Sign Up", new_user_path %>
+
+    <% end %>
+    <hr>
+    <%= flash[:notice] || flash[:alert] %>
+    <hr>
+    <%= yield %>
   </div>
 
-
-  <hr>
-  <%= flash[:notice] || flash[:alert] %>
-  <hr>
-<%= yield %>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 <h1><%= @product.title %></h1>
 <p><%= @product.description %></p>
 <p>Price: $<%= "%.2f" % @product.price %></p>
+<p>Category: <%= @product.category.name %></p>
+<p>Create by: <%= @product.user_full_name.titleize %></p>
 <%= link_to "Edit", edit_product_path(@product) %>
 <%= link_to "Delete", product_path(@product), method: :delete,
                                               data: {confirm: "Are you sure?"} %>
@@ -16,7 +18,8 @@
   <%#= f.text_field :star_count %>
 
   <label for="review_star_count" class="control-label">Rate This</label>
-  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
+  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5" data-step="1" data-show-clear="false"
+>
 
   <%= f.label :body, "Review" %>
   <%= f.text_area :body %>
@@ -26,8 +29,20 @@
 <h2>Reviews</h2>
 <% @product.reviews.each do |review| %>
   <!-- <%#= review.star_count %> star - -->
-  <label for="review_star_count" class="control-label">Rate This</label>
-  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="<%= review.star_count %>">
+  <p>Create by: <%= @product.user_full_name.titleize %></p>
+
+  <% i = 0%>
+  <% while i < review.star_count do %>
+    <i class="fa fa-star icon-yellow-star" aria-hidden="true"></i>
+  	<%# <span style="font-size:100%;color:yellow;border-color:black">&starf;</span> %>
+  	<% i += 1%>
+  <% end %>
+
+  <% while i < 5 do %>
+    <i class="fa fa-star icon-gray-star" aria-hidden="true"></i>
+    <%# <span style="font-size:100%;color:black;">&star;</span> %>
+  	<% i += 1 %>
+  <% end %>
 
   <%= review.body %>
   <%= link_to "delete", product_review_path(@product, review),
