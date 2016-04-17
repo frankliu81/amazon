@@ -1,3 +1,5 @@
+<div class="container-product">
+
 <h1><%= @product.title %></h1>
 <p><%= @product.description %></p>
 <p>Price: $<%= "%.2f" % @product.price %></p>
@@ -26,15 +28,23 @@
 
 
 <%# product_reviews_path is a post to review#create under a product id %>
-<%= form_for @review, url: product_reviews_path(@product) do |f| %>
+<%= form_for @review, url: product_reviews_path(@product), html: {class: "form"} do |f| %>
   <%#= f.label :star_count, "Star" %>
   <%#= f.text_field :star_count %>
+  <div class="form-group">
+    <label for="review_star_count" class="control-label">Rate This</label>
+    <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5"
+    data-step="1" data-show-clear="false">
+  </div>
 
-  <label for="review_star_count" class="control-label">Rate This</label>
-  <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5"
-  data-step="1" data-show-clear="false">
+  <div class="form-group product-review">
+    <%= f.label :body, "Review", class: "control-label" %>
+    <%= f.text_area :body, class: "form-control product-review__textarea" %>
+  </div>
 
-  <%= f.label :body, "Review" %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Create Review", class: "btn btn-primary" %>
+  </div>
 <% end %>
+
+</div>

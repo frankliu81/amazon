@@ -5,7 +5,8 @@
 
 .container-user,
 .container-sign-in,
-.container-new-or-edit-product
+.container-new-or-edit-product,
+.container-product
 {
   width: 80%;
 }
@@ -18,7 +19,7 @@
 
 // product show page with review
 .icon-gray-star {
-    color: #888;
+    color: lightgray;
 }
 
 .icon-yellow-star
@@ -26,4 +27,13 @@
   color: yellow;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: orange;
+}
+
+
+.product-review {
+  height: 200px;
+}
+
+.product-review__textarea {
+  height: 80% !important;
 }
