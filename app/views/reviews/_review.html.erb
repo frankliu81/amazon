@@ -17,7 +17,7 @@
   <% end %>
 
   <%= review.body %>
-  <% if is_authorized_for_current_user @product.user  %>
+  <% if is_authorized_for_current_user? @product.user  %>
     <%= link_to "delete", product_review_path(@product, review),
                   data: {confirm: "Are you sure?"},
                   method: :delete %>
