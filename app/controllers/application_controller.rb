@@ -16,13 +16,17 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def is_authorized_for_current_user authorized_user
-    current_user.id == authorized_user.id
+    if current_user
+      return current_user.id == authorized_user.id
+    end
   end
   helper_method :is_authorized_for_current_user
 
 
   def current_user
-    @current_user ||= User.find session[:user_id]
+    # use find_by_id so that it doesn't raise an exception if the user is not found
+    # so we can still visit all products when the show page calls is_authorized_for_current_user?
+    @current_user ||= User.find_by_id session[:user_id]
   end
   helper_method :current_user
 
