@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: true
   validates :price, presence: true
+  validates_numericality_of :price
   validates :sale_price, presence: true, numericality: {less_than_or_equal_to: :price }
 
   def onsale?

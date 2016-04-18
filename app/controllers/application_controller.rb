@@ -15,12 +15,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_signed_in?
 
-  def is_authorized_for_current_user authorized_user
+  def is_authorized_for_current_user? authorized_user
     if current_user
       return current_user.id == authorized_user.id
     end
   end
-  helper_method :is_authorized_for_current_user
+  helper_method :is_authorized_for_current_user?
 
 
   def current_user
