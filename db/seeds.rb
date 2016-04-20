@@ -20,21 +20,21 @@ u = FactoryGirl.create(:user, password: 'bu', password_confirmation: 'bu')
 # u = User.create!(email: 'frankliu81@gmail.com', first_name: 'Franky', last_name: 'Liu', password: 'bu', password_confirmation: 'bu')
 
 10.times do
-  p = FactoryGirl.create(:product)
+  prod = FactoryGirl.create(:product)
 
   3.times do
     r = FactoryGirl.create(:review)
     r.user = u
     r.save
-    p.reviews.push(r)
+    prod.reviews.push(r)
     # each not defined for reviews
     #p.reviews = FactoryGirl.create(:review)
   end
 
   #random_category = all_categories[rand(cateogories_count).floor]
   random_category = all_categories.sample
-  p.category = random_category
-  p.user = u
-  p.save
+  prod.category = random_category
+  prod.user = u
+  prod.save
 
 end

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :nullify
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".titleize
   end
 
 end
