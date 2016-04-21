@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ReviewsController, type: :controller do
   let(:product) { FactoryGirl.create(:product) }
-  let(:user) { FactoryGirl.create(:user) }
+  #let(:user) { FactoryGirl.create(:user) }
 
   describe "#create" do
 
@@ -20,21 +20,27 @@ RSpec.describe ReviewsController, type: :controller do
     context "with a signed in user" do
       # request is the request object that rspec uses to interact
       # with the controller
-      before { request.session[:user_id] = user.id}
+      #before { request.session[:user_id] = user.id}
+      # replace this with spec/controller_helpers.rb sign in
+      before { sign_in }
 
       def valid_params
-        post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: user.id})
+        #post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: user.id})
+        post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: session[:user_id]})
       end
 
       def invalid_params
-        post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: user.id, body: nil})
+        #post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: user.id, body: nil})
+        post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: session[:user_id], body: nil})
       end
 
       context "valid params" do
 
         it "associate the review with the current user" do
           valid_params
-          expect(Review.last.user.id).to eq(user.id)
+          #expect(Review.last.user.id).to eq(user.id)
+          expect(Review.last.user.id).to eq(session[:user_id])
+
         end
 
       end
