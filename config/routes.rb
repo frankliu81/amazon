@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   # delete "products/:id"     => "products#destroy"
   root "home#index"
 
+  # testing redirect vs render
+  #get '/derek' => "products#derek"
+  #get '/frank' => "products#frank"
+
   resources :products do
     resources :reviews#, only: [:create, :destroy]
   end

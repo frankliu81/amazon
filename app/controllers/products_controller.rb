@@ -1,9 +1,19 @@
-tclass ProductsController < ApplicationController
+class ProductsController < ApplicationController
 
   before_action :find_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def new
     @product = Product.new
+  end
+
+  def derek
+    @message = "I'm derek"
+  end
+
+  def frank
+    @message = "I'm frank"
+    redirect_to derek_path
+    #render "products/derek"
   end
 
   def create
@@ -47,6 +57,9 @@ tclass ProductsController < ApplicationController
 private
 
   def product_params
+    # don't permit user_id, then set it to some review to user_id 5, even it is not your review
+    # if you have a form with a drop down, select a product, what comes into your hash is your product id
+    # but if your url requires a product id, then you don't need to permit, you can set it from what's from the URL
     product_params = params.require(:product).permit(:title, :description, :price, :category_id)
   end
 
