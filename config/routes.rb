@@ -15,9 +15,12 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :reviews#, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
   end
 
-  resources :users, only: [:new, :create]
+  #get '/products/favorited' => "products#favorited", as: :favorited_products
+
+  resources :users, only: [:new, :create, :show]
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection

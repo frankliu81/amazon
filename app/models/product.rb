@@ -4,6 +4,9 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
+  has_many :favorites, dependent: :destroy
+  has_many :users,  through: :favorites
+
   # http://stackoverflow.com/questions/1550688/how-do-i-create-a-default-value-for-attributes-in-rails-activerecords-model
   #before_validation :default_values
   after_initialize :default_values
@@ -23,6 +26,10 @@ class Product < ActiveRecord::Base
 
   def category_name
     category ? category.name : ""
+  end
+
+  def favorite_for(user)
+    favorites.find_by_user_id user if user
   end
 
   private

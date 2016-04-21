@@ -67,4 +67,10 @@ private
     @product = Product.find params[:id]
   end
 
+
+  def user_favorite
+    @user_favorite ||= @product.favorite_for(current_user)
+  end
+  helper_method :user_favorite
+
 end

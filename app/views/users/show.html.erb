@@ -1,0 +1,9 @@
+<h1>User Info</h1>
+<hr>
+<h2>Favorited Products</h2>
+<hr>
+<% if current_user  &&  current_user.favorited_products.each%>
+  <% current_user.favorited_products.each do |favorited_product| %>
+    <p> <%= link_to favorited_product.title, product_path(favorited_product) %> </p>
+  <% end %>
+<% end %>

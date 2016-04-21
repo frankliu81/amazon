@@ -41,6 +41,8 @@
     |
     <%= link_to "All Products", products_path %>
     |
+    <%= link_to "Favorited Products", user_path(current_user) %>
+    |
     <% if user_signed_in? %>
       Hello <%= current_user.first_name %> |
       <%= link_to "Log out", sessions_path, method: :delete %>
