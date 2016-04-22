@@ -46,4 +46,5 @@ class ReviewsController < ApplicationController
       redirect_to product_path(product), notice: "Review deleted"
     end
 
-end
+
+  end

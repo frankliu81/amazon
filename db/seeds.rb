@@ -13,28 +13,45 @@
 end
 
 all_categories = Category.all
-cateogories_count = all_categories.count
-u = FactoryGirl.create(:user, password: 'bu', password_confirmation: 'bu')
+categories_count = all_categories.count
+#u = FactoryGirl.create(:user, password: 'bu', password_confirmation: 'bu')
 # u = FactoryGirl.create(:user, :password => 'hello', :password_confirmation => 'hello')
 # create! will raise an error on validation failure
 # u = User.create!(email: 'frankliu81@gmail.com', first_name: 'Franky', last_name: 'Liu', password: 'bu', password_confirmation: 'bu')
 
-10.times do
-  prod = FactoryGirl.create(:product)
+admin_user = User.create(first_name: 'Admin', last_name: 'Admin',
+              email: 'admin@admin.com', password: 'admin',
+              password_confirmation: 'admin', admin: true)
 
+frank = User.create(first_name: 'Frank', last_name: 'Liu',
+              email: 'frankliu81@gmail.com', password: 'bu',
+              password_confirmation: 'bu')
+
+frank2 = User.create(first_name: 'Franky', last_name: 'Liu',
+              email: 'frankliu82@gmail.com', password: 'bu',
+              password_confirmation: 'bu')
+
+10.times do
+  #prod = FactoryGirl.create(:product)
+
+  prod = Product.new FactoryGirl.attributes_for(:product).merge({user_id: frank.id})
+
+  #byebug
   3.times do
-    r = FactoryGirl.create(:review)
-    r.user = u
+    r = prod.reviews.new FactoryGirl.attributes_for(:review)
+    r.user = frank
     r.save
-    prod.reviews.push(r)
-    # each not defined for reviews
-    #p.reviews = FactoryGirl.create(:review)
   end
 
-  #random_category = all_categories[rand(cateogories_count).floor]
+  ###random_category = all_categories[rand(cateogories_count).floor]
   random_category = all_categories.sample
+  #puts random_category.id
   prod.category = random_category
-  prod.user = u
+  #prod.user = u
+  #prod.valid?
+  #puts prod.errors.inspect
+  #puts "hello"
   prod.save
+  #puts prod
 
 end

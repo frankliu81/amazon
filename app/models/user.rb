@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :favorited_products, through: :favorites, source: :product
 
+  has_many :review_likes, dependent: :destroy
+  has_many :liked_reviews, through: :review_likes, source: :review
 
   def full_name
     "#{first_name} #{last_name}".titleize

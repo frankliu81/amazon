@@ -33,7 +33,11 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find session[:user_id] if user_signed_in?
   end
-
   helper_method :current_user
+
+  def user_like
+    @user_like ||= review.like_for(current_user)
+  end
+  helper_method :user_like
 
 end

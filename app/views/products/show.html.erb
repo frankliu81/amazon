@@ -7,15 +7,17 @@
 <p>Create by: <%= @product.user_full_name.titleize %></p>
 <% if is_authorized_for_current_user? @product.user  %>
   <%= link_to "Edit", edit_product_path(@product) %>
+  |
   <%= link_to "Delete", product_path(@product), method: :delete,
                                                 data: {confirm: "Are you sure?"},
                                                 class: "like-fav-icon" %>
 <% end %>
 
 <% if user_favorite %>
-  <%= link_to fa_icon("heart"), product_favorite_path(@product, user_favorite), method: :delete %>
+  <%= link_to icon("heart"), product_favorite_path(@product, user_favorite),
+  method: :delete, class: "like-fav-icon" %>
 <% else %>
-  <%= link_to fa_icon("heart-o"), product_favorites_path(@product), method: :post,
+  <%= link_to icon("heart-o"), product_favorites_path(@product), method: :post,
   class: "like-fav-icon" %>
 <% end %>
 

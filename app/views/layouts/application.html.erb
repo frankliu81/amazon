@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%# font awesome %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
   <%# amazon icon %>
   <link rel="icon" href="http://www.communications-ink.net/wp-content/uploads/2015/03/Screen-Shot-2015-03-10-at-2.51.37-PM.png">
 </head>
@@ -41,7 +41,7 @@
     |
     <%= link_to "All Products", products_path %>
     |
-    <%= link_to "Favorited Products", user_path(current_user) %>
+    <%= link_to "Favorited Products", favorites_path %>
     |
     <% if user_signed_in? %>
       Hello <%= current_user.first_name %> |
