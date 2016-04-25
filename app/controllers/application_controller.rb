@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :is_authorized_for_current_user?
 
-
   # def current_user
   #   # use find_by_id so that it doesn't raise an exception if the user is not found
   #   # so we can still visit all products when the show page calls is_authorized_for_current_user?
@@ -35,9 +34,16 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # TODO: not used in _review.html.erb
+  # you shouldn't do memoization here, if you have multiple reviews
+  # it will do it for one but not the other
   def user_like
     @user_like ||= review.like_for(current_user)
   end
   helper_method :user_like
+
+  def sign_in(user)
+    session[:user_id] = user.id
+  end
 
 end

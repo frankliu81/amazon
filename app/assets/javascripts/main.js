@@ -14,3 +14,7 @@
 //   //alert("hello")
 //   $(".rating").rating();
 // })
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+});

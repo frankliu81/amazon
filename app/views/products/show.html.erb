@@ -11,6 +11,7 @@
   <%= link_to "Delete", product_path(@product), method: :delete,
                                                 data: {confirm: "Are you sure?"},
                                                 class: "like-fav-icon" %>
+  |
 <% end %>
 
 <% if user_favorite %>
@@ -20,8 +21,7 @@
   <%= link_to icon("heart-o"), product_favorites_path(@product), method: :post,
   class: "like-fav-icon" %>
 <% end %>
-
-<%= (@product.favorites.count) %>
+<%#= (@product.favorites.count) %>
 <hr>
 
 <%= @review.errors.full_messages.join(", ") %>

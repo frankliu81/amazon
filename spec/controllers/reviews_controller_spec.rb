@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ReviewsController, type: :controller do
   let(:product) { FactoryGirl.create(:product) }
-  #let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   describe "#create" do
 
@@ -21,8 +21,11 @@ RSpec.describe ReviewsController, type: :controller do
       # request is the request object that rspec uses to interact
       # with the controller
       #before { request.session[:user_id] = user.id}
-      # replace this with spec/controller_helpers.rb sign in
-      before { sign_in }
+      # replace this with spec/controller_helpers.rb sign_in
+      # before { sign_in(user) }
+      # replace with application_controll.rb sign_in
+      # http://stackoverflow.com/questions/4739116/how-to-test-applicationcontroller-method-defined-also-as-a-helper-method
+      before { @controller.sign_in(user) }
 
       def valid_params
         #post :create, product_id: product.id, review: FactoryGirl.attributes_for(:review).merge({user_id: user.id})

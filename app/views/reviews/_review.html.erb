@@ -23,7 +23,7 @@
                   method: :delete %>
   <% end %>
   |
-  <%# if user_like %>
+  <%# if user_like review%>
   <% if review.like_for(current_user) %>
     <%#= link_to "Un-like", review_like_path(review, user_like),
   method: :delete, class: "like-fav-icon" %>
@@ -33,5 +33,6 @@ method: :delete, class: "like-fav-icon" %>
     <%= link_to "Like", review_likes_path(review), method: :post,
     class: "like-fav-icon" %>
   <% end %>
+  <%= "#{review.likes.count}" %>
   <hr>
 <%# end icon("thumbs") icon("thumbs-o") %>

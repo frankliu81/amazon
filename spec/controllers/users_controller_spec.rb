@@ -26,7 +26,7 @@ RSpec.describe UsersController, type: :controller do
           expect(count_after).to eq(count_before + 1)
         end
 
-        it "it redirects to the root path" do
+        it "redirects to the root path" do
           valid_request
           expect(response).to redirect_to(root_path)
         end

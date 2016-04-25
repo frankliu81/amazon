@@ -14,7 +14,7 @@ end
 
 all_categories = Category.all
 categories_count = all_categories.count
-#u = FactoryGirl.create(:user, password: 'bu', password_confirmation: 'bu')
+# u = FactoryGirl.create(:user, password: 'bu', password_confirmation: 'bu')
 # u = FactoryGirl.create(:user, :password => 'hello', :password_confirmation => 'hello')
 # create! will raise an error on validation failure
 # u = User.create!(email: 'frankliu81@gmail.com', first_name: 'Franky', last_name: 'Liu', password: 'bu', password_confirmation: 'bu')
@@ -33,25 +33,26 @@ frank2 = User.create(first_name: 'Franky', last_name: 'Liu',
 
 10.times do
   #prod = FactoryGirl.create(:product)
-
   prod = Product.new FactoryGirl.attributes_for(:product).merge({user_id: frank.id})
 
-  #byebug
+  ###random_category = all_categories[rand(cateogories_count).floor]
+  random_category = all_categories.sample
+  #puts random_category.id
+  prod.category = random_category
+  prod.save
+
   3.times do
     r = prod.reviews.new FactoryGirl.attributes_for(:review)
     r.user = frank
     r.save
   end
 
-  ###random_category = all_categories[rand(cateogories_count).floor]
-  random_category = all_categories.sample
-  #puts random_category.id
-  prod.category = random_category
+  #byebug
   #prod.user = u
   #prod.valid?
   #puts prod.errors.inspect
   #puts "hello"
-  prod.save
   #puts prod
+  #prod.save
 
 end
