@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
     favorite = Favorite.new
     # associate the user and product with the favorite
     favorite.user = current_user
+    # product is defined as a method below, found via a find of product_id
     favorite.product = product
 
     if favorite.save

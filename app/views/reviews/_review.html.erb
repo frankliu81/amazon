@@ -1,6 +1,7 @@
-
 <%# @product.reviews.each do |review| %>
   <!-- <%#= review.star_count %> star - -->
+<div id="<%= dom_id(review) %>" style="<%= style if defined?(style) %>">
+
   <p>Create by: <%= review.user_full_name.titleize %></p>
 
   <% i = 0%>
@@ -20,7 +21,8 @@
   <% if is_authorized_for_current_user? @product.user  %>
     <%= link_to "Delete", product_review_path(@product, review),
                   data: {confirm: "Are you sure?"},
-                  method: :delete %>
+                  method: :delete,
+                  remote: true %>
   <% end %>
   |
   <%# if user_like review%>
@@ -36,3 +38,5 @@ method: :delete, class: "like-fav-icon" %>
   <%= "#{review.likes.count}" %>
   <hr>
 <%# end icon("thumbs") icon("thumbs-o") %>
+
+</div>

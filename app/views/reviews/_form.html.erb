@@ -1,0 +1,24 @@
+<%= @review.errors.full_messages.join(", ") %>
+<hr>
+
+<%# product_reviews_path is a post to review#create under a product id %>
+<h3> Create a Review</h3>
+<%#= form_for review, url: product_reviews_path(@product), html: {class: "form"}, remote: true do |f| %>
+<%= form_for [@product, review], html: {class: "form"}, remote: true do |f| %>
+  <%#= f.label :star_count, "Star" %>
+  <%#= f.text_field :star_count %>
+  <div class="form-group">
+    <label for="review_star_count" class="control-label">Rate This</label>
+    <input id="review_star_count" name="review[star_count]" class="rating rating-loading" data-min="0" data-max="5"
+    data-step="1" data-show-clear="false">
+  </div>
+
+  <div class="form-group product-review">
+    <%= f.label :body, "Review", class: "control-label" %>
+    <%= f.text_area :body, class: "form-control product-review__textarea" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Create Review",  data: {disable_with: "submitting..."}, class: "btn btn-primary" %>
+  </div>
+<% end %>

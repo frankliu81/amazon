@@ -14,9 +14,12 @@
  *= require_self
  */
 
+// Bootswatch instructions https://github.com/maxim/bootswatch-rails
 @import "bootstrap-sprockets";
-// @import "bootstrap";
+
+// Amazon specific
 @import "bootstrap-star-rating-master/css/star-rating";
+
 // Import cerulean variables
 // @import "bootswatch/cerulean/variables";
 @import "bootswatch/united/variables";

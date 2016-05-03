@@ -1,0 +1,5 @@
+$("#<%= dom_id(@review) %>").fadeOut(500, function(){
+  $(this).remove();
+});
+var $input = $('input.rating');
+$input.removeClass('rating-loading').addClass('rating-loading').rating();
