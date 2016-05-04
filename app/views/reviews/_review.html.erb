@@ -16,7 +16,6 @@
     <%# <span style="font-size:100%;color:black;">&star;</span> %>
   	<% i += 1 %>
   <% end %>
-
   <%= review.body %>
   <% if is_authorized_for_current_user? @product.user  %>
     <%= link_to "Delete", product_review_path(@product, review),
@@ -25,18 +24,10 @@
                   remote: true %>
   <% end %>
   |
-  <%# if user_like review%>
-  <% if review.like_for(current_user) %>
-    <%#= link_to "Un-like", review_like_path(review, user_like),
-  method: :delete, class: "like-fav-icon" %>
-  <%= link_to "Un-like", review_like_path(review, review.like_for(current_user)),
-method: :delete, class: "like-fav-icon" %>
-  <% else %>
-    <%= link_to "Like", review_likes_path(review), method: :post,
-    class: "like-fav-icon" %>
-  <% end %>
-  <%= "#{review.likes.count}" %>
-  <hr>
+  <div id="<%= dom_id(review)%>_like">
+    <%= render "/likes/like", review: review %>
+  </div>
+
 <%# end icon("thumbs") icon("thumbs-o") %>
 
 </div>

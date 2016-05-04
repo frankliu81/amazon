@@ -1,0 +1,16 @@
+<%# if user_like review%>
+<%# byebug  %>
+<%# if review is defined, it will call like_for with that parameter
+otherwise return nil %>
+<%# byebug %>
+<% if review.like_for current_user %>
+  <%#= link_to "Un-like", review_like_path(review, user_like),
+method: :delete, class: "like-fav-icon" %>
+<%= link_to "Un-like", review_like_path(review, review.like_for(current_user)),
+method: :delete, remote: true, class: "like-fav-icon" %>
+<% else %>
+  <%= link_to "Like", review_likes_path(review), method: :post, remote: true,
+  class: "like-fav-icon" %>
+<% end %>
+<%= "#{review.likes.count}" %>
+<hr>

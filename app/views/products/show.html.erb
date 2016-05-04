@@ -42,8 +42,11 @@
 
 
 <!-- this for the star rating would work as well if we don't include jquery-turbolink gem fix -->
-<!-- <script>
-  $(".rating").rating()
-</script> -->
+<script>
+var $input = $('input.rating');
+if ($input.length) {
+    $input.removeClass('rating-loading').addClass('rating-loading').rating();
+}
+</script>
 
 </div>
