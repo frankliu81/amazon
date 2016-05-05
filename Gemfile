@@ -34,6 +34,8 @@ gem 'jquery-turbolinks'
 gem 'bootswatch-rails'
 gem 'font-awesome-sass'
 
+# cross-origin-resource sharing
+gem 'rack-cors', :require => 'rack/cors'
 
 
 # Use Unicorn as the app server
