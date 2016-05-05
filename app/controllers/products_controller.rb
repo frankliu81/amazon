@@ -29,10 +29,18 @@ class ProductsController < ApplicationController
 
   def show
     @review = Review.new
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @product }
+    end
   end
 
   def index
     @products = Product.all
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @products }
+    end
   end
 
   def edit
